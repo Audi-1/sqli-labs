@@ -1,0 +1,247 @@
+
+body {
+	background-color: #eeeeee;
+  	color: #000000;
+	font-family:sans-serif;
+}
+
+:link { color: #0000ff; text-decoration:none;}
+:visited { color: #6666ff; text-decoration:none; }
+a:active { color: #0000ff; text-decoration:none;}
+a:hover {color: #0000ff; text-decoration:underline; }
+
+div.basetext {
+    background-color:#ffffff;
+        margin-top:11px;
+        margin-bottom:11px;
+	margin-left:1%;
+	margin-right:1%;
+	padding-top:11px;
+	padding-left:11px;
+	padding-right:11px;
+	padding-bottom:11px;
+	text-align:left;
+	font-weight:normal;
+  border-width:thin;
+  border-style:solid;
+  border-color:#dddddd;
+}
+
+div.basetop {
+  position: fixed;
+  width:auto;
+  height:auto;
+  right:0em;
+  top:0em;
+  left:auto; 
+  top:0;
+    background-color:#ffffff;
+        margin-top:0;
+        margin-bottom:0;
+	margin-left:1%;
+	margin-right:1%;
+	padding-top:2px;
+	padding-left:11px;
+	padding-right:11px;
+	padding-bottom:2px;
+	text-align:left;
+	font-weight:normal;
+text-align:right;
+  border-width:thin;
+  border-style:solid;
+  border-color:#dddddd;
+}
+
+h1 {
+    text-align:center;
+}
+
+span.h2 {
+    font-family:sans-serif;
+    font-weight:bold;
+}
+
+div.year {
+	margin-right:2%;
+	background-color:#eeeeee;
+}
+
+div.form {
+}
+
+span.cpt {
+	color:#005500;
+	font-weight:bold;
+}
+
+span.cm {
+	color:#666666;
+}
+
+.fl {
+	color:#0000FF;	
+	font-style:italic;
+}
+
+ul {
+	margin-top:1px;
+        margin-bottom:1px;
+	margin-left:0px;
+	padding-left:3%;
+}
+
+li {
+	list-style:outside;
+  margin-top:10px;   
+  margin-bottom:10px;
+}
+
+ul li {
+	list-style:square;
+	font-family:sans-serif;
+	font-weight:normal;
+}
+
+li.basic {
+	list-style:square;
+	list-style-image:none;
+  margin-top:2px;
+  margin-bottom:2px;
+}
+
+span.links {
+}
+
+
+
+
+.sub { display: none; }
+.subexp {display: block; }
+.sub { display: none; } 
+
+.subexp {display: block; } 
+
+li.exp {
+  list-style-image:url("plus.png");
+  margin-top:10px;
+  margin-bottom:10px;
+  cursor:pointer;
+}
+
+li.col {
+  list-style-image:url("minus.png");
+  margin-top:10px;
+  margin-bottom:10px;
+  cursor:pointer;
+}
+
+li.exp_active {
+  list-style-image:url("plus.png");
+  margin-top:10px;  
+  margin-bottom:10px;
+  background-color:#eeeeff;
+  cursor:pointer;
+}
+
+li.col_active {
+  list-style-image:url("minus.png");
+  margin-top:10px;
+  margin-bottom:10px;
+  background-color:#eeeeff;
+  cursor:pointer; /* if not included, bullets are not shown right in moz*/
+}
+
+
+li.basic_active {
+  list-style:square;
+  list-style-image:none;
+  background-color:#eeeeff;
+  margin-top:2px;
+  margin-bottom:2px;
+}
+
+/* the 'boxed' and 'attributes' styles are used to display notes and attributes
+*/
+
+.boxed,.nodecontent {display:inline;}
+.boxed .note-and-attributes {display:none;}
+
+.boxed:hover .note-and-attributes {
+	position:fixed; top:2em;right:10px;z-index:3;
+	display:block;
+	min-width:33%;
+	max-width:60%;
+	max-height:95%;
+	color:black;
+	background:#ffffff;
+	font:normal 16px courier, sans-serif;
+	border:1px solid black;
+	padding:10px;
+}
+
+.note:before {
+	content:"NOTE: ";
+	font-weight:bold;
+}
+
+table.attributes {
+	border-collapse:collapse;
+	empty-cells:show;
+	border:thin black solid;
+}
+table.attributes td,th {
+	border:thin black solid;
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:3px;
+	padding-right:3px;
+}
+table.attributes th {
+	text-align:center;
+}
+table.attributes caption {
+	margin-top:1em;
+	font-style:italic;
+	text-align:center;
+}
+/* Thanks to wolfgangradke, https://sourceforge.net/forum/message.php?msg_id=5991663 */
+div.nodecontent > p {
+	margin-top:0pt;
+	margin-bottom:0pt;
+	display:inline;
+}
+
+p + p { 
+ 	margin-top: 0.5em !important;
+	display:block !important;
+}
+
+/* Thanks to erne100, https://sourceforge.net/tracker/?func=detail&atid=107118&aid=2747128&group_id=7118*/
+table {
+	border-collapse:collapse;
+	empty-cells:show;
+	border:thin black solid;
+}
+table td {
+	border:thin black solid;
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:3px;
+	padding-right:3px;
+}
+
+/* Thanks to erne100, https://sourceforge.net/tracker/?func=detail&atid=107118&aid=2747000&group_id=7118*/
+ol {
+	margin-top:1px;
+    margin-bottom:1px;
+	margin-left:0px;
+	padding-left:3%;
+}
+
+ol li {
+	list-style:decimal;
+	font-family:sans-serif;
+	font-weight:normal;
+}
+
+
