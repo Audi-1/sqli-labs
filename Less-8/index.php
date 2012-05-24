@@ -53,18 +53,7 @@ $row = mysql_fetch_array($result);
 
 ?>
 
-
-</font> </div>
-<div  align="center" style="margin:60px 0px 0px 260px;border:20px;text-align:center;width:400px; height:450px;">
-<div style="padding-top:10px; font-size:19px;"><img src="../images/Less-8.jpg" />
-</div>
-</div>
+</font> </div></br></br></br><center>
+<img src="../images/Less-8.jpg" /></center>
 </body>
 </html>
-
-
-
-
-
-
- 

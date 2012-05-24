@@ -52,19 +52,7 @@ $row = mysql_fetch_array($result);
 	else { echo "Please input the ID as parameter with numeric value";}
 
 ?>
-
-
-</font> </div>
-<div  align="center" style="margin:60px 0px 0px 260px;border:20px;text-align:center;width:400px; height:450px;">
-<div style="padding-top:10px; font-size:19px;"><img src="../images/Less-10.jpg" />
-</div>
-</div>
+</font> </div></br></br></br><center>
+<img src="../images/Less-10.jpg" /></center>
 </body>
 </html>
-
-
-
-
-
-
- 
