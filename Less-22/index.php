@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<title>Less-20 Cookie Injection- Error Based- string</title>
+<title>Less-22 Cookie Injection- Error Based- Double Quotes - string</title>
 </head>
 
 <body bgcolor="#000000">
@@ -36,8 +36,10 @@ if(!isset($_COOKIE['uname']))
 	echo '<div style=" margin-top:10px;color:#FFF; font-size:23px; text-align:center">';
 	echo '<font size="3" color="#FFFF00">';
 	echo '<center><br><br><br>';
-	echo '<img src="../images/Less-20.jpg" />';
+	echo '<img src="../images/Less-22.jpg" />';
 	echo '</center>';
+
+
 
 
 
@@ -81,11 +83,10 @@ function check_input($value)
 		$sql="SELECT  users.username, users.password FROM users WHERE users.username=$uname and users.password=$passwd ORDER BY users.id DESC LIMIT 0,1";
 		$result1 = mysql_query($sql);
 		$row1 = mysql_fetch_array($result1);
-		$cookee = $row1['username'];
 			if($row1)
 				{
 				echo '<font color= "#FFFF00" font size = 3 >';
-				setcookie('uname', $cookee, time()+3600);	
+				setcookie('uname', base64_encode($row1['username']), time()+3600);	
 				header ('Location: index.php');
 				echo "I LOVE YOU COOKIES";
 				echo "</font>";
@@ -122,13 +123,12 @@ else
 
 	if(!isset($_POST['submit']))
 		{
-			
 			$cookee = $_COOKIE['uname'];
 			$format = 'D d M Y - H:i:s';
 			$timestamp = time() + 3600;
 			echo "<center>";
-			echo '<br><br><br>';
-			echo '<img src="../images/Less-20.jpg" />';
+			echo "<br><br><br><b>";
+			echo '<img src="../images/Less-21.jpg" />';
 			echo "<br><br><b>";
 			echo '<br><font color= "red" font size="4">';	
 			echo "YOUR USER AGENT IS : ".$_SERVER['HTTP_USER_AGENT'];
@@ -141,9 +141,10 @@ else
 			echo '<font color= "orange" font size = 5 >';			
 			echo "YOUR COOKIE : uname = $cookee and expires: " . date($format, $timestamp);
 			
-			
+			$cookee = base64_decode($cookee);
+			$cookee1 = '"'. $cookee. '"';
 			echo "<br></font>";
-			$sql="SELECT * FROM users WHERE username='$cookee' LIMIT 0,1";
+			$sql="SELECT * FROM users WHERE username=$cookee1 LIMIT 0,1";
 			$result=mysql_query($sql);
 			if (!$result)
   				{
@@ -186,7 +187,7 @@ else
 		echo "<br>";
 		echo '<font color= "#FFFF00" font size = 6 >';
 		echo " Your Cookie is deleted";
-				setcookie('uname', $row1['username'], time()-3600);
+				setcookie('uname', base64_encode($row1['username']), time()-3600);
 				header ('Location: index.php');
 		echo '</font></center></br>';
 		
