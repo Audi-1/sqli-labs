@@ -13,6 +13,11 @@ if (!$con)
   {
   die('Could not connect: ' . mysql_error());
   }
+############################################
+# For Less-24
+$form_title_in="Please Login to Continue";
+$form_title_ns="New User";
+$feedback_title_ns="New User";
 ?>
 
 
