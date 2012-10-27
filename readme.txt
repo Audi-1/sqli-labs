@@ -1,5 +1,7 @@
   
 
+Corrosponding video tutorials can be found at http://dummy2dummies.blogspot.com, http://www.securitytube.net/user/Audi
+
 
 <!DOCTYPE html>
 <html>
