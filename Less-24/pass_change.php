@@ -36,7 +36,7 @@ if (isset($_POST['submit']))
 	if($pass==$re_pass)
 	{	
 		$sql = "UPDATE users SET PASSWORD='$pass' where username='$username' and password='$curr_pass' ";
-		$res = mysql_query($sql) or die('You tried to be smart, Try harder!!!! :( '.mysql_error());
+		$res = mysql_query($sql) or die('You tried to be smart, Try harder!!!! :( ');
 		$row = mysql_affected_rows();
 		echo '<font size="3" color="#FFFF00">';
 		echo '<center>';
