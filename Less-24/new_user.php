@@ -1,11 +1,6 @@
-<?PHP
-session_start();
-if (isset($_SESSION["auth"])) {
-   header('Location: form.php');
-}
-?>
+
 <?php
-include 'settings_inc.php' ;
+include '../sql-connections/sql-connect.php' ;
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
 <html>
