@@ -7,7 +7,7 @@
 <a style="font-size:.8em;color:#FFFF00" href='index.php'><img src="../images/Home.png" height='45'; width='45'></br>HOME</a>
 </div>
 <?PHP
-error_reporting(0);
+
 session_start();
 //including the Mysql connect parameters.
 include("../sql-connections/sql-connect.php");

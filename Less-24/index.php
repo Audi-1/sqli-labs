@@ -52,17 +52,7 @@ include("../sql-connections/sql-connect.php");
 <a style="font-size:.8em;color:#FFFF00" href="new_user.php">New User click here?</a>
 </td>
 </tr>
-<?PHP
-if ($_GET["loginerror"]){
-?>
-<tr><td colspan="2" style="text-align:center;"><br/><p style="color:#FF0000;">Login Error, Please provide a correct username and password combination to login</p></td></tr>
-<?PHP
-} elseif($_GET["loginforgot"]){
-?>
-<tr><td colspan="2" style="text-align:center;"><br/><p style="color:#FF0000;">Please contact your Lab Instructor</p></td></tr>
-<?PHP
-}
-?>
+
 </table>
 </div>
 </form>

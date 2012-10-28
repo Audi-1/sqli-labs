@@ -17,7 +17,7 @@ if (!isset($_COOKIE["Auth"]))
 <a style="font-size:.8em;color:#FFFF00" href='index.php'><img src="../images/Home.png" height='45'; width='45'></br>HOME</a>
 </div>
 <?php
-error_reporting(0);
+
 //including the Mysql connect parameters.
 include("../sql-connections/sql-connect.php");
 
