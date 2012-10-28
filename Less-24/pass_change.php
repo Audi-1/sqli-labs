@@ -17,7 +17,7 @@ if (!isset($_COOKIE["Auth"]))
 <a style="font-size:.8em;color:#FFFF00" href='index.php'><img src="../images/Home.png" height='45'; width='45'></br>HOME</a>
 </div>
 <?php
-
+error_reporting(0);
 //including the Mysql connect parameters.
 include("../sql-connections/sql-connect.php");
 
@@ -29,9 +29,9 @@ if (isset($_POST['submit']))
 	
 	# Validating the user input........
 	$username= $_SESSION["username"];
-	$curr_pass= mysql_escape_string($_POST['current_password']);
-	$pass= mysql_escape_string($_POST['password']);
-	$re_pass= mysql_escape_string($_POST['re_password']);
+	$curr_pass= mysql_real_escape_string($_POST['current_password']);
+	$pass= mysql_real_escape_string($_POST['password']);
+	$re_pass= mysql_real_escape_string($_POST['re_password']);
 	
 	if($pass==$re_pass)
 	{	
