@@ -34,3 +34,4 @@ Install Instructions:
 
 Corrosponding video tutorials can be found at http://dummy2dummies.blogspot.com, http://www.securitytube.net/user/Audi
 
+you can also find the read along book at https://leanpub.com/SQLI-LABS, work is under process.
