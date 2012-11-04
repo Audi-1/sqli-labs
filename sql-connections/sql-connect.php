@@ -2,7 +2,7 @@
 
 //including the Mysql connect parameters.
 include("../sql-connections/db-creds.inc");
-
+error_reporting(0);
 $con = mysql_connect($host,$dbuser,$dbpass);
 
 //mysql_select_db($dbname,$con);
