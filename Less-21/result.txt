@@ -20,3 +20,4 @@ Cookie:Dumb
 Cookie:superman
 Cookie:
 Cookie:') union select 1, database(), current_user #
+Cookie:admin

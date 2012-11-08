@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Less-27 Trick with SELECT & UNION</title>
+<title>Less-28a Trick with SELECT & UNION</title>
 </head>
 
 <body bgcolor="#000000">
@@ -56,13 +56,13 @@ if(isset($_GET['id']))
 
 function blacklist($id)
 {
-$id= preg_replace('/[\/\*]/',"", $id);				//strip out /*
-$id= preg_replace('/[--]/',"", $id);				//Strip out --.
-$id= preg_replace('/[#]/',"", $id);					//Strip out #.
-$id= preg_replace('/[ +]/',"", $id);	    		//Strip out spaces.
+//$id= preg_replace('/[\/\*]/',"", $id);				//strip out /*
+//$id= preg_replace('/[--]/',"", $id);				//Strip out --.
+//$id= preg_replace('/[#]/',"", $id);					//Strip out #.
+//$id= preg_replace('/[ +]/',"", $id);	    		//Strip out spaces.
 //$id= preg_replace('/select/m',"", $id);	   		 	//Strip out spaces.
-$id= preg_replace('/[ +]/',"", $id);	    		//Strip out spaces.
-$id= preg_replace('/union\s+select/i',"", $id);	    //Strip out UNION & SELECT.
+//$id= preg_replace('/[ +]/',"", $id);	    		//Strip out spaces.
+$id= preg_replace('/union\s+select/i',"", $id);	    //Strip out spaces.
 return $id;
 }
 
@@ -70,11 +70,11 @@ return $id;
 
 ?>
 </font> </div></br></br></br><center>
-<img src="../images/Less-28.jpg" />
+<img src="../images/Less-28a.jpg" />
 </br>
 </br>
 </br>
-<img src="../images/Less-28-1.jpg" />
+<img src="../images/Less-28a-1.jpg" />
 </br>
 </br>
 <font size='4' color= "#33FFFF">
