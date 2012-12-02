@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Less-27 Trick with SELECT & UNION</title>
+<title>Less-30</title>
 </head>
 
 <body bgcolor="#000000">
@@ -14,6 +14,9 @@
 //including the Mysql connect parameters.
 include("../sql-connections/sql-connect.php");
 
+//disable error reporting
+error_reporting(0);
+
 // take the variables 
 if(isset($_GET['id']))
 {
@@ -23,15 +26,12 @@ if(isset($_GET['id']))
 	fwrite($fp,'ID:'.$id."\n");
 	fclose($fp);
 
-	//fiddling with comments
-	$id= blacklist($id);
-	//echo "<br>";
-	//echo $id;
-	//echo "<br>";
-	$hint=$id;
+	$qs = $_SERVER['QUERY_STRING'];
+	$hint=$qs;
+	$id = '"' .$id. '"';
 
 // connectivity 
-	$sql="SELECT * FROM users WHERE id='$id' LIMIT 0,1";
+	$sql="SELECT * FROM users WHERE id=$id LIMIT 0,1";
 	$result=mysql_query($sql);
 	$row = mysql_fetch_array($result);
 	if($row)
@@ -45,7 +45,7 @@ if(isset($_GET['id']))
 	else 
 	{
 		echo '<font color= "#FFFF00">';
-		print_r(mysql_error());
+		//print_r(mysql_error());
 		echo "</font>";  
 	}
 }
@@ -53,38 +53,18 @@ if(isset($_GET['id']))
 
 
 
-
-function blacklist($id)
-{
-$id= preg_replace('/[\/\*]/',"", $id);		//strip out /*
-$id= preg_replace('/[--]/',"", $id);		//Strip out --.
-$id= preg_replace('/[#]/',"", $id);			//Strip out #.
-$id= preg_replace('/[ +]/',"", $id);	    //Strip out spaces.
-$id= preg_replace('/select/m',"", $id);	    //Strip out spaces.
-$id= preg_replace('/[ +]/',"", $id);	    //Strip out spaces.
-$id= preg_replace('/union/s',"", $id);	    //Strip out union
-$id= preg_replace('/select/s',"", $id);	    //Strip out select
-$id= preg_replace('/UNION/s',"", $id);	    //Strip out UNION
-$id= preg_replace('/SELECT/s',"", $id);	    //Strip out SELECT
-$id= preg_replace('/Union/s',"", $id);	    //Strip out Union
-$id= preg_replace('/Select/s',"", $id);	    //Strip out select
-return $id;
-}
-
-
-
 ?>
 </font> </div></br></br></br><center>
-<img src="../images/Less-27.jpg" />
+<img src="../images/Less-30.jpg" />
 </br>
 </br>
 </br>
-<img src="../images/Less-27-1.jpg" />
+<img src="../images/Less-30-1.jpg" />
 </br>
 </br>
 <font size='4' color= "#33FFFF">
 <?php
-echo "Hint: Your Input is Filtered with following result: ".$hint;
+echo "Hint: The Query String you input is: ".$hint;
 ?>
 </font> 
 </center>

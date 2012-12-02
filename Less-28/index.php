@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Less-27 Trick with SELECT & UNION</title>
+<title>Less-28 Trick with SELECT & UNION</title>
 </head>
 
 <body bgcolor="#000000">
