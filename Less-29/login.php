@@ -116,7 +116,15 @@ function java_implimentation($query_string)
 <font size='4' color= "#33FFFF">
 <?php
 echo "Hint: The Query String you input is: ".$hint;
+
 ?>
+<br>
+<br>
+Reference:
+<br>
+<a href="https://www.owasp.org/images/b/ba/AppsecEU09_CarettoniDiPaola_v0.8.pdf">AppsecEU09_CarettoniDiPaola_v0.8.pdf</a><br>
+<a href="https://community.qualys.com/servlet/JiveServlet/download/38-10665/Protocol-Level Evasion of Web Application Firewalls v1.1 (18 July 2012).pdf">https://community.qualys.com/servlet/JiveServlet/download/38-10665/Protocol-Level Evasion of Web Application Firewalls v1.1 (18 July 2012).pdf</a>
+
 </font> 
 </center>
 </body>
