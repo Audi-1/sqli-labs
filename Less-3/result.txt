@@ -1,5 +1,0 @@
-ID:1
-ID:1'
-ID:1') -- 
-ID:1'
-ID:999') UNION SELECT 1,2,3 AND ('1
