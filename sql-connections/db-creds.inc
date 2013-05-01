@@ -2,7 +2,7 @@
 
 //give your mysql connection username n password
 $dbuser ='root';
-$dbpass ='toor';
+$dbpass ='';
 $dbname ="security";
 $host = 'localhost';
 

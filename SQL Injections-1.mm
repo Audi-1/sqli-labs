@@ -1,9 +1,9 @@
 <map version="0.9.0">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node CREATED="1324136400104" ID="ID_1494913344" MODIFIED="1352120393579" TEXT="SQL Injections">
+<node CREATED="1324136400104" ID="ID_1494913344" MODIFIED="1367248865653" TEXT="SQL Injections-Page-2">
 <node CREATED="1324136425237" HGAP="-20" ID="ID_903641389" MODIFIED="1352118718739" POSITION="right" TEXT="Less-22" VSHIFT="25">
 <icon BUILTIN="pencil"/>
-<node CREATED="1324136506469" ID="ID_456038241" MODIFIED="1352119546920" TEXT="Cookie Injection - base64 encoded - double quotes" VSHIFT="12">
+<node CREATED="1324136506469" ID="ID_456038241" MODIFIED="1367248146489" TEXT="Cookie Injection - base64 encoded - double quotes" VSHIFT="12">
 <icon BUILTIN="penguin"/>
 </node>
 </node>
@@ -39,7 +39,8 @@
 </node>
 <node CREATED="1324137707627" HGAP="15" ID="ID_1410936587" MODIFIED="1352118833323" POSITION="right" TEXT="Less - 26a" VSHIFT="-1">
 <icon BUILTIN="pencil"/>
-<node CREATED="1324137874201" HGAP="21" ID="ID_1403477223" MODIFIED="1354444184305" TEXT="GET - Blind Based - All your SPACES and COMMENTS belong to us -String-single quotes-Parenthesis" VSHIFT="18">
+<node CREATED="1324137874201" HGAP="21" ID="ID_1403477223" MODIFIED="1367248118812" TEXT="GET - Blind Based - All your SPACES and COMMENTS belong to us -String-single quotes-Parenthesis" VSHIFT="18">
+<font NAME="SansSerif" SIZE="12"/>
 <icon BUILTIN="penguin"/>
 </node>
 </node>
@@ -87,7 +88,7 @@
 </node>
 <node CREATED="1337259760351" HGAP="18" ID="ID_1236630160" MODIFIED="1354483238450" POSITION="right" TEXT="Less - 32" VSHIFT="4">
 <icon BUILTIN="pencil"/>
-<node CREATED="1337260042429" ID="ID_1831469301" MODIFIED="1352120356684" TEXT="POST - " VSHIFT="16">
+<node CREATED="1337260042429" ID="ID_1831469301" MODIFIED="1367247180406" TEXT="GET - Bypass custom filter adding slashes to dangerous chars." VSHIFT="16">
 <icon BUILTIN="penguin"/>
 </node>
 </node>
@@ -99,13 +100,13 @@
 </node>
 <node CREATED="1337259768974" HGAP="13" ID="ID_1264770325" MODIFIED="1354483249462" POSITION="right" TEXT="Less - 34" VSHIFT="-1">
 <icon BUILTIN="pencil"/>
-<node CREATED="1337260049111" HGAP="22" ID="ID_1399680041" MODIFIED="1352120372098" TEXT="POST - " VSHIFT="18">
+<node CREATED="1337260049111" HGAP="22" ID="ID_1399680041" MODIFIED="1367247215971" TEXT="POST - Bypass AddSlashes()" VSHIFT="18">
 <icon BUILTIN="penguin"/>
 </node>
 </node>
 <node CREATED="1337259771723" HGAP="-3" ID="ID_371433913" MODIFIED="1354483152433" POSITION="left" TEXT="Less - 33" VSHIFT="-19">
 <icon BUILTIN="pencil"/>
-<node CREATED="1337260061967" HGAP="23" ID="ID_1507876679" MODIFIED="1352120367013" TEXT="POST - " VSHIFT="15">
+<node CREATED="1337260061967" HGAP="23" ID="ID_1507876679" MODIFIED="1367247198135" TEXT="GET - Bypass AddSlashes()" VSHIFT="15">
 <icon BUILTIN="penguin"/>
 </node>
 </node>
@@ -117,7 +118,7 @@
 </node>
 <node CREATED="1337286664875" HGAP="-16" ID="ID_622646021" MODIFIED="1354483261494" POSITION="left" TEXT="Less-35" VSHIFT="-1">
 <icon BUILTIN="pencil"/>
-<node CREATED="1337286733038" HGAP="19" ID="ID_1658696559" MODIFIED="1352120377728" TEXT="POST " VSHIFT="18">
+<node CREATED="1337286733038" HGAP="19" ID="ID_1658696559" MODIFIED="1367406281017" TEXT="GET - Bypass Add Slashes (we dont need them) Integer based" VSHIFT="18">
 <icon BUILTIN="penguin"/>
 </node>
 </node>
