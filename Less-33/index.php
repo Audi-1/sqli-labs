@@ -33,7 +33,7 @@ fclose($fp);
 
 // connectivity 
 
-
+mysql_query("SET NAMES gbk");
 $sql="SELECT * FROM users WHERE id='$id' LIMIT 0,1";
 $result=mysql_query($sql);
 $row = mysql_fetch_array($result);
@@ -67,7 +67,17 @@ $row = mysql_fetch_array($result);
 </br>
 <font size='4' color= "#33FFFF">
 <?php
-echo "Hint: The Query String you input is escaped as : ".$id;
+function strToHex($string)
+{
+    $hex='';
+    for ($i=0; $i < strlen($string); $i++)
+    {
+        $hex .= dechex(ord($string[$i]));
+    }
+    return $hex;
+}
+echo "Hint: The Query String you input is escaped as : ".$id ."<br>";
+echo "The Query String you input in Hex becomes : ".strToHex($id);
 ?>
 </center>
 </font> 

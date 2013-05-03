@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Less-34- Bypass Add SLASHES</title>
+	<title>Less-37- MySQL_real_escape_string</title>
 </head>
 
 <body bgcolor="#000000">
@@ -34,7 +34,7 @@
 <br>
 <br>
 <br>
-<img src="../images/Less-34.jpg" />
+<img src="../images/Less-37.jpg" />
 </center>
 
 <?php
@@ -57,8 +57,8 @@ if(isset($_POST['uname']) && isset($_POST['passwd']))
 	fwrite($fp,'Password:'.$passwd1."\n");
 	fclose($fp);
         
-        $uname = addslashes($uname1);
-        $passwd= addslashes($passwd1);
+        $uname = mysql_real_escape_string($uname1);
+        $passwd= mysql_real_escape_string($passwd1);
         
         //echo "username after addslashes is :".$uname ."<br>";
         //echo "Input password after addslashes is : ".$passwd;    

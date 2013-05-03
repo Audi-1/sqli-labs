@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Less-35 **why care for addslashes()**</title>
+<title>Less-36 **Bypass MySQL Real Escape String**</title>
 </head>
 
 <body bgcolor="#000000">
@@ -14,16 +14,16 @@
 //including the Mysql connect parameters.
 include("../sql-connections/sql-connect.php");
 
-function check_addslashes($string)
+function check_quotes($string)
 {
-    $string = addslashes($string);
+    $string= mysql_real_escape_string($string);    
     return $string;
 }
 
 // take the variables 
 if(isset($_GET['id']))
 {
-$id=check_addslashes($_GET['id']);
+$id=check_quotes($_GET['id']);
 //echo "The filtered request is :" .$id . "<br>";
 
 //logging the connection parameters to a file for analysis.
@@ -34,7 +34,7 @@ fclose($fp);
 // connectivity 
 
 mysql_query("SET NAMES gbk");
-$sql="SELECT * FROM users WHERE id=$id LIMIT 0,1";
+$sql="SELECT * FROM users WHERE id='$id' LIMIT 0,1";
 $result=mysql_query($sql);
 $row = mysql_fetch_array($result);
 
@@ -59,7 +59,7 @@ $row = mysql_fetch_array($result);
 
 ?>
 </font> </div></br></br></br><center>
-<img src="../images/Less-35.jpg" />
+<img src="../images/Less-36.jpg" />
 </br>
 </br>
 </br>
@@ -67,7 +67,17 @@ $row = mysql_fetch_array($result);
 </br>
 <font size='4' color= "#33FFFF">
 <?php
-echo "Hint: The Query String you input is escaped as : ".$id;
+function strToHex($string)
+{
+    $hex='';
+    for ($i=0; $i < strlen($string); $i++)
+    {
+        $hex .= dechex(ord($string[$i]));
+    }
+    return $hex;
+}
+echo "Hint: The Query String you input is escaped as : ".$id ."<br>";
+echo "The Query String you input in Hex becomes : ".strToHex($id);
 ?>
 </center>
 </font> 

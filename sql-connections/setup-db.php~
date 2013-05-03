@@ -40,7 +40,7 @@ if (!$con)
 
 
 //Creating new database security
-	$sql="CREATE database `security` CHARACTER SET `gbk` ";
+	$sql="CREATE database `security` CHARACTER SET `gbk` COLLATE `gbk_chinese_ci` ";
 	if (mysql_query($sql))
 		{echo "[*]...................Creating New database successfully";echo "</br></br>";}
 	else 
