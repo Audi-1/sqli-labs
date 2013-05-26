@@ -12,14 +12,14 @@ include("../sql-connections/sql-connect.php");
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
-<title>Less-42 - Stacked Query error based </title>
+<title>Less-44 - Stacked Query blind </title>
 </head>
 <body bgcolor="#000000">
 
 <div style="text-align:center">
 <form name="login" method="POST" action="login.php">
 
-<h2 style="text-align:center;background-image:url('../images/Less-42.jpg');background-repeat:no-repeat;background-position:center center">
+<h2 style="text-align:center;background-image:url('../images/Less-44.jpg');background-repeat:no-repeat;background-position:center center">
 <div style="padding-top:300px;text-align:center;color:#FFFF00;"><?php echo $form_title_in; ?></div>
 </h2>
 

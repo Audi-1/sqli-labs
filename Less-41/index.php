@@ -6,7 +6,7 @@ include("../sql-connections/db-creds.inc");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Less-41 **stacked Query String type Blind**</title>
+<title>Less-41 **stacked Query Intiger type blind**</title>
 </head>
 
 <body bgcolor="#000000">
@@ -43,7 +43,7 @@ else
 
 
 
-$sql="SELECT * FROM users WHERE id=('$id') LIMIT 0,1";
+$sql="SELECT * FROM users WHERE id=$id LIMIT 0,1";
 /* execute multi query */
 if (mysqli_multi_query($con1, $sql))
 {

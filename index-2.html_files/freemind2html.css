@@ -1,0 +1,76 @@
+body { 
+  background-color: #FFFFFF;
+}
+
+div.node { 
+  padding-bottom:     1ex;
+  padding-left:       2em;
+}
+
+div.cloud { 
+  padding-bottom:     1ex;
+  padding-left:       2em;
+  background-color:   #C0C0FF;
+  border-width:       2px;
+  border-style:       solid;
+  border-color:       #A0A0FF;
+}
+
+div.content { 
+  border-width:       1px;
+  border-style:   dashed;
+  border-color:       #C0C0C0;
+}
+
+img.hideshow { 
+  padding-right: 1ex;
+}
+
+img.ilink { 
+  border-width: 0px;
+  padding-left: 1ex;
+}
+
+/* for notes and image export, fc, 18.7.2005. */
+.images {
+ max-width:50%;
+}
+
+.nodecontent {display:inline;}
+
+.note-and-attributes {
+ margin-left:10%;
+ color:#0000FF;
+}
+
+table.attributes {
+	border-collapse:collapse;
+	empty-cells:show;
+	border:thin black solid;
+}
+table.attributes td,th {
+	border:thin black solid;
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:3px;
+	padding-right:3px;
+}
+table.attributes th {
+	text-align:center;
+}
+table.attributes caption {
+	margin-top:1em;
+	font-style:italic;
+	text-align:center;
+}
+/* Thanks to wolfgangradke, https://sourceforge.net/forum/message.php?msg_id=5991663 */
+div.nodecontent > p {
+	margin-top:0pt;
+	margin-bottom:0pt;
+	display:inline;
+}
+
+p + p { 
+ 	margin-top: 0.5em !important;
+	display:block !important;
+}
