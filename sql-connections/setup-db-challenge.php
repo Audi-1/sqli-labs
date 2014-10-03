@@ -1,3 +1,7 @@
+<html>
+<head>
+</head>
+<body bgcolor="#000000">
 <?php
 //including the Mysql connect parameters
 include '../sql-connections/db-creds.inc';
@@ -67,3 +71,5 @@ if(isset($id))
 header( "refresh:0;url=$id" );
 
 ?>
+</body>
+</html>
