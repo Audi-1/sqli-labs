@@ -7,12 +7,16 @@
 
 <body bgcolor="#000000">
 
-<div style=" margin-top:20px;color:#FFF; font-size:24px; text-align:center"> Welcome&nbsp;&nbsp;&nbsp;<font color="#FF0000"> Dhakkan </font><br></div>
+<div style=" margin-top:20px;color:#FFF; font-size:24px; text-align:center"> 
+Welcome&nbsp;&nbsp;&nbsp;
+<font color="#FF0000"> Dhakkan </font>
+<br>
 </div>
+
 <div style=" margin-top:10px;color:#FFF; font-size:23px; text-align:left">
 <font size="3" color="#FFFF00">
 SETTING UP THE DATABASE SCHEMA AND POPULATING DATA IN TABLES:
-</br></br> 
+<br><br> 
 
 
 <?php
@@ -34,24 +38,24 @@ if (!$con)
 //purging Old Database	
 	$sql="DROP DATABASE IF EXISTS security";
 	if (mysql_query($sql))
-		{echo "[*]...................Old database purged if exists"; echo "</br></br>\n";}
+		{echo "[*]...................Old database purged if exists"; echo "<br><br>\n";}
 	else 
-		{echo "[*]...................Error purging database: " . mysql_error(); echo "</br></br>\n";}
+		{echo "[*]...................Error purging database: " . mysql_error(); echo "<br><br>\n";}
 
 
 //Creating new database security
 	$sql="CREATE database `security` CHARACTER SET `gbk` ";
 	if (mysql_query($sql))
-		{echo "[*]...................Creating New database successfully";echo "</br></br>\n";}
+		{echo "[*]...................Creating New database successfully";echo "<br><br>\n";}
 	else 
-		{echo "[*]...................Error creating database: " . mysql_error();echo "</br></br>\n";}
+		{echo "[*]...................Error creating database: " . mysql_error();echo "<br><br>\n";}
 
 //creating table users
 $sql="CREATE TABLE security.users (id int(3) NOT NULL AUTO_INCREMENT, username varchar(20) NOT NULL, password varchar(20) NOT NULL, PRIMARY KEY (id))";
 	if (mysql_query($sql))
-		{echo "[*]...................Creating New Table 'users' successfully";echo "</br></br>\n";}
+		{echo "[*]...................Creating New Table 'users' successfully";echo "<br><br>\n";}
 	else 
-		{echo "[*]...................Error creating Table: " . mysql_error();echo "</br></br>\n";}
+		{echo "[*]...................Error creating Table: " . mysql_error();echo "<br><br>\n";}
 
 
 //creating table emails
@@ -62,9 +66,9 @@ $sql="CREATE TABLE security.emails
 		PRIMARY KEY (id)
 		)";
 	if (mysql_query($sql))
-		{echo "[*]...................Creating New Table 'emails' successfully"; echo "</br></br>\n";}
+		{echo "[*]...................Creating New Table 'emails' successfully"; echo "<br><br>\n";}
 	else 
-		{echo "[*]...................Error creating Table: " . mysql_error();echo "</br></br>\n";}
+		{echo "[*]...................Error creating Table: " . mysql_error();echo "<br><br>\n";}
 
 
 
@@ -78,9 +82,9 @@ $sql="CREATE TABLE security.uagents
 		PRIMARY KEY (id)
 		)";
 	if (mysql_query($sql))
-		{echo "[*]...................Creating New Table 'uagents' successfully";echo "</br></br>\n";}
+		{echo "[*]...................Creating New Table 'uagents' successfully";echo "<br><br>\n";}
 	else 
-		{echo "[*]...................Error creating Table: " . mysql_error();echo "</br></br>\n";}
+		{echo "[*]...................Error creating Table: " . mysql_error();echo "<br><br>\n";}
 
 
 //creating table referers
@@ -92,9 +96,9 @@ $sql="CREATE TABLE security.referers
 		PRIMARY KEY (id)
 		)";
 	if (mysql_query($sql))
-		{echo "[*]...................Creating New Table 'referers' successfully";echo "</br></br>\n";}
+		{echo "[*]...................Creating New Table 'referers' successfully";echo "<br><br>\n";}
 	else 
-		{echo "[*]...................Error creating Table: " . mysql_error();echo "</br></br>\n";}
+		{echo "[*]...................Error creating Table: " . mysql_error();echo "<br><br>\n";}
 
 
 
@@ -107,34 +111,34 @@ $sql="CREATE TABLE IF NOT EXISTS security.challenge1
 		tryy INT(11) UNSIGNED NOT NULL DEFAULT 0 
 		)";
 	if (mysql_query($sql))
-		{echo "[*]...................Creating New Table 'Challenge1' successfully";echo "</br></br>\n";}
+		{echo "[*]...................Creating New Table 'Challenge1' successfully";echo "<br><br>\n";}
 	else 
-		{echo "[*]...................Error creating Table: " . mysql_error();echo "</br></br>\n";}
+		{echo "[*]...................Error creating Table: " . mysql_error();echo "<br><br>\n";}
 
 
 //inserting data
 $sql="INSERT INTO security.users (id, username, password) VALUES ('1', 'Dumb', 'Dumb'), ('2', 'Angelina', 'I-kill-you'), ('3', 'Dummy', 'p@ssword'), ('4', 'secure', 'crappy'), ('5', 'stupid', 'stupidity'), ('6', 'superman', 'genious'), ('7', 'batman', 'mob!le'), ('8', 'admin', 'admin'), ('9', 'admin1', 'admin1'), ('10', 'admin2', 'admin2'), ('11', 'admin3', 'admin3'), ('12', 'dhakkan', 'dumbo'), ('14', 'admin4', 'admin4')";
 	if (mysql_query($sql))
-		{echo "[*]...................Inserted data correctly into table 'users'";echo "</br></br>\n";}
+		{echo "[*]...................Inserted data correctly into table 'users'";echo "<br><br>\n";}
 	else 
-		{echo "[*]...................Error inserting data: " . mysql_error();echo "</br></br>\n";}
+		{echo "[*]...................Error inserting data: " . mysql_error();echo "<br><br>\n";}
 
 
 
 //inserting data
 $sql="INSERT INTO `security`.`emails` (id, email_id) VALUES ('1', 'Dumb@dhakkan.com'), ('2', 'Angel@iloveu.com'), ('3', 'Dummy@dhakkan.local'), ('4', 'secure@dhakkan.local'), ('5', 'stupid@dhakkan.local'), ('6', 'superman@dhakkan.local'), ('7', 'batman@dhakkan.local'), ('8', 'admin@dhakkan.com')";
 	if (mysql_query($sql))
-		{echo "[*]...................Inserted data correctly  into table 'emails'";echo "</br></br>\n";}
+		{echo "[*]...................Inserted data correctly  into table 'emails'";echo "<br><br>\n";}
 	else 
-		{echo "[*]...................Error inserting data: " . mysql_error();echo "</br></br>\n";}
+		{echo "[*]...................Error inserting data: " . mysql_error();echo "<br><br>\n";}
 
 
 //inserting data
 $sql="INSERT INTO `security`.`challenge1` VALUES (1, 'd0d310aefdde0f05255ae92e32a833cd', 'L6V5BkVmtW2zEwEsy4BbVf1YZM9OWVCh', 0)";
         if (mysql_query($sql))
-		{echo "[*]...................Inserted data correctly  into table 'challenge1'";echo "</br></br>\n";}
+		{echo "[*]...................Inserted data correctly  into table 'challenge1'";echo "<br><br>\n";}
 	else 
-		{echo "[*]...................Error inserting data: " . mysql_error();echo "</br></br>\n";}
+		{echo "[*]...................Error inserting data: " . mysql_error();echo "<br><br>\n";}
 
 //CREATE TABLE security.search (id int(3) NOT NULL AUTO_INCREMENT, search varchar(20) NOT NULL, PRIMARY KEY (id));
 //INSERT INTO `security`.`search` (search) VALUES ( 'Dumb@dhakkan.com'), ('Angel@iloveu.com'), ('Dummy@dhakkan.local'), ( 'secure@dhakkan.local'), ( 'stupid@dhakkan.local'), ( 'superman@dhakkan.local'), ( 'batman@dhakkan.local'), ( 'admin@dhakkan.com')"; 
