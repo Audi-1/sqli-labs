@@ -11,20 +11,14 @@ if (!$con)
 }
 
 
-    @mysql_select_db($dbname,$con) or die ( "Unable to connect to the database: $dbname");
+    @mysql_select_db($dbname1,$con) or die ( "Unable to connect to the database: $dbname1".mysql_error());
 
 
 
 
 
 
-$sql_connect = "SQL Connect included";
-############################################
-# For Less-24
-$form_title_in="Please Login to Continue";
-$form_title_ns="New User";
-$feedback_title_ns="New User";
-$form_title_ns= "Less-24";
+$sql_connect_1 = "SQL Connect included";
 
 ############################################
 # For Challenge series--- Randomizing the Table names.

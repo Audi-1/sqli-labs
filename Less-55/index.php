@@ -19,82 +19,44 @@
 
 <?php
 //including the Mysql connect parameters.
-include("../sql-connections/sql-connect.php");
+include '../sql-connections/sql-connect-1.php';
+include '../sql-connections/functions.php';
+$pag = $_SERVER['PHP_SELF']; //generating page address to piggy back after redirects...
+$characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; //characterset for generating random data
+$times= 14;
 
-
-
-
-//Creating dynamic string for challenge password
-function passwd_gen()
-{
-	$characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-	$string_length = 24;
-	$string = '';
- 	for ($i = 0; $i < $string_length; $i++) 
-	{
-      		$string .= $characters[rand(0, strlen($characters) - 1)];
- 	}
-	//echo $string;
-	return $string;
-}
-
-
-//Updating the counter for Attempts at solving problem.
-function next_tryy()
-{
-	//including the Mysql connect parameters.
-	include("../sql-connections/sql-connect.php");
-	$sql = "UPDATE challenge1 SET tryy=tryy+1 WHERE id=1";
-	mysql_query($sql);
-}
-
-function view_attempts()
-{
-	include("../sql-connections/sql-connect.php");
-	$sql="SELECT tryy FROM challenge1 WHERE id=1";
-	$result=mysql_query($sql);
-	$row = mysql_fetch_array($result);
-	return $row[0];
-	
-}
-
+$table = table_name();
+$col = column_name(1);     // session id column name
+$col1 = column_name(2);   //secret key column name
 
 
 // Submitting the final answer
 if(!isset($_POST['answer_key']))
 {
-
-
-	// resetting the challenge and repopulating the table Challenge1.
+	// resetting the challenge and repopulating the table .
 	if(isset($_POST['reset']))
 	{
-		setcookie('challenge1', ' ', time() - 3600000);
+		setcookie('challenge', ' ', time() - 3600000);
 		echo "<font size=4>You have reset the Challenge</font><br>\n";
 		echo "Redirecting you to main challenge page..........\n";
-		header( "refresh:4;url=index.php" );
+		header( "refresh:4;url=../sql-connections/setup-db-challenge.php?id=$pag" );
 		//echo "cookie expired";
 			
 	}
 	else
 	{
-	
-
 		// Checking the cookie on the page and populate the table with random value.
-		if(isset($_COOKIE['challenge1']))
+		if(isset($_COOKIE['challenge']))
 		{
-			$sessid=$_COOKIE['challenge1'];
+			$sessid=$_COOKIE['challenge'];
 			//echo "Cookie value: ".$sessid;
 		}
 		else
 		{
 			$expire = time()+60*60*24*30;
-			$hash = md5(rand(0,100000));
-			setcookie("challenge1", $hash, $expire);
-			//echo "New Cookie : " . $hash . "<br>";
-			$passwd = passwd_gen();
-			//echo "Password : ".$passwd;
-			$sql = "UPDATE challenge1 set sessid = '$hash', secret_key = '$passwd', tryy= 0 WHERE id=1";
-			mysql_query($sql);
+			$hash = data($table,$col);
+			setcookie("challenge", $hash, $expire);
+			
 		}
 	
 		echo "<br>\n";
@@ -115,33 +77,34 @@ if(!isset($_POST['answer_key']))
 			
 			//Display attempts on screen.
 			$tryyy = view_attempts();
-			echo "You have made : ". $tryyy ." of 14 attempts";
+			echo "You have made : ". $tryyy ." of $times attempts";
 			echo "<br><br><br>\n";
 		
 			
 			//Reset the Database if you exceed allowed attempts.
-			if($tryyy == 15)
+			
+			if($tryyy >=($times+1))
 			{
-				setcookie('challenge1', ' ', time() - 3600000);
+				setcookie('challenge', ' ', time() - 3600000);
 				echo "<font size=4>You have exceeded maximum allowed attempts, Hence Challenge Has Been Reset </font><br>\n";
 				echo "Redirecting you to challenge page..........\n";
-				header( "refresh:4;url=index.php" );
-				echo "<br>";
+				header( "refresh:3;url=../sql-connections/setup-db-challenge.php?id=$pag" );
+				echo "<br>\n";
 			}	
 		
 		
 		
 			// Querry DB to get the correct output
-			$sql="SELECT * FROM users WHERE id=($id) LIMIT 0,1";
+			$sql="SELECT * FROM security.users WHERE id=($id) LIMIT 0,1";
 			$result=mysql_query($sql);
 			$row = mysql_fetch_array($result);
 
 			if($row)
 			{
 				echo '<font color= "#00FFFF">';	
-				echo 'Your Login name : '. $row['username'];
+				echo 'Your Login name:'. $row['username'];
 				echo "<br>";
-				echo 'Your Password : ' .$row['password'];
+				echo 'Your Password:' .$row['password'];
 				echo "</font>";
 			}
 			else 
@@ -154,7 +117,8 @@ if(!isset($_POST['answer_key']))
 		else
 		{
 			echo "Please input the ID as parameter with numeric value as done in  Lab excercises\n<br><br>\n</font>";
-			echo "<font color='#00FFFF': size=3>The objective of this challenge is to dump the secret key from table <b><i>Challenge1</i></b> in Less than 14 attempts";
+			echo "<font color='#00FFFF': size=3>The objective of this challenge is to dump the <b>(secret key)</b> from only random table from Database <b><i>('CHALLENGES')</i></b> in Less than $times attempts<br>";
+			echo "For fun, with every reset, the challenge spawns random table name, column name, table data. Keeping it fresh at all times.<br>" ;
 		}
 	
 	}
@@ -184,8 +148,10 @@ else
 	$key = mysql_real_escape_string($key);
 	//echo $key;
 	//Query table to verify your result
-	$sql="SELECT 1 FROM challenge1 WHERE secret_key= '$key'";
-	$result=mysql_query($sql);
+	$sql="SELECT 1 FROM $table WHERE $col1= '$key'";
+	//echo "$sql";
+	$result=mysql_query($sql)or die("error in submittion of Key Solution".mysql_error());
+	 
 	$row = mysql_fetch_array($result);
 	
 	if($row)
@@ -200,8 +166,8 @@ else
 		echo '<font color= "#FFFF00">';
 		echo "\n<br><br><br>";
 		echo '<img src="../images/slap1.jpg" />';
-		//print_r(mysql_error());
 		header( "refresh:3;url=index.php" );
+		//print_r(mysql_error());
 		echo "</font>";  
 			}	
 
