@@ -5,7 +5,7 @@
 <?php
 //including the Mysql connect parameters
 include '../sql-connections/db-creds.inc';
-include '../sql-connections/functions.php';
+
 @error_reporting(0);
 $id = $_GET['id'];
 echo $id;
@@ -35,7 +35,7 @@ if (!$con)
 	else 
 		{echo "[*]...................Error creating database: " . mysql_error();echo "<br><br>\n";}
 
-
+include '../sql-connections/functions.php';
 
 
 
