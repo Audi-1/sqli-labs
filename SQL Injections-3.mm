@@ -3,25 +3,25 @@
 <node CREATED="1324136400104" ID="ID_1494913344" MODIFIED="1412376747822" TEXT="SQL Injections-Page-4">
 <node CREATED="1324136425237" HGAP="-20" ID="ID_903641389" MODIFIED="1412377159425" POSITION="right" TEXT="Less-55" VSHIFT="25">
 <icon BUILTIN="pencil"/>
-<node CREATED="1324136506469" ID="ID_456038241" MODIFIED="1412377194866" TEXT="GET - challenge - Error- 14 queries allowed - Variation 2" VSHIFT="12">
+<node CREATED="1324136506469" ID="ID_456038241" MODIFIED="1412415595300" TEXT="GET - challenge - Union- 14 queries allowed - Variation 2" VSHIFT="12">
 <icon BUILTIN="penguin"/>
 </node>
 </node>
 <node CREATED="1324136501788" HGAP="-1" ID="ID_1198941000" MODIFIED="1412377287375" POSITION="right" TEXT="Less - 57" VSHIFT="7">
 <icon BUILTIN="pencil"/>
-<node CREATED="1324136690771" HGAP="15" ID="ID_85068748" MODIFIED="1412377297788" TEXT="GET - challenge - Error- 14 queries allowed - Variation 4" VSHIFT="14">
+<node CREATED="1324136690771" HGAP="15" ID="ID_85068748" MODIFIED="1412415625617" TEXT="GET - challenge - Union- 14 queries allowed - Variation 4" VSHIFT="14">
 <icon BUILTIN="penguin"/>
 </node>
 </node>
 <node CREATED="1324136429162" HGAP="-14" ID="ID_194436165" MODIFIED="1412376774656" POSITION="left" TEXT="Less-54" VSHIFT="420">
 <icon BUILTIN="pencil"/>
-<node CREATED="1324137533985" ID="ID_1551007752" MODIFIED="1412377218072" TEXT="GET - challenge - Error- 10 queries allowed - Variation 1" VSHIFT="14">
+<node CREATED="1324137533985" ID="ID_1551007752" MODIFIED="1412415586423" TEXT="GET - challenge - Union- 10 queries allowed - Variation 1" VSHIFT="14">
 <icon BUILTIN="penguin"/>
 </node>
 </node>
 <node CREATED="1324136441860" HGAP="-1" ID="ID_351889515" MODIFIED="1412376785009" POSITION="left" STYLE="fork" TEXT="Less - 56" VSHIFT="5">
 <icon BUILTIN="pencil"/>
-<node CREATED="1324137615576" HGAP="17" ID="ID_201265776" MODIFIED="1412377277351" TEXT="GET - challenge - Error- 14 queries allowed - Variation 3" VSHIFT="15">
+<node CREATED="1324137615576" HGAP="17" ID="ID_201265776" MODIFIED="1412415653702" TEXT="GET - challenge - Union- 14 queries allowed - variation 3" VSHIFT="15">
 <icon BUILTIN="penguin"/>
 </node>
 </node>
@@ -46,7 +46,7 @@
 </node>
 <node CREATED="1324137711332" HGAP="12" ID="ID_824569291" MODIFIED="1412376811411" POSITION="left" TEXT="Less - 60" VSHIFT="-3">
 <icon BUILTIN="pencil"/>
-<node CREATED="1324137896185" HGAP="16" ID="ID_1830668257" MODIFIED="1369517825967" TEXT="POST - Error based - String - Stacked -Blind" VSHIFT="17">
+<node CREATED="1324137896185" HGAP="16" ID="ID_1830668257" MODIFIED="1412415674901" TEXT="GET - challenge - Double Query- 5 queries allowed - Variation 3" VSHIFT="17">
 <icon BUILTIN="penguin"/>
 </node>
 </node>

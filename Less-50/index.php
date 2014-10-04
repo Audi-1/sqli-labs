@@ -11,6 +11,7 @@
 
 <?php
 include("../sql-connections/sqli-connect.php");
+error_reporting(0);
 $id=$_GET['sort'];	
 if(isset($id))
 {

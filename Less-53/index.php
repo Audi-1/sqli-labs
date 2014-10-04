@@ -11,6 +11,7 @@
 
 <?php
 include("../sql-connections/sqli-connect.php");
+error_reporting(0);
 $id=$_GET['sort'];	
 if(isset($id))
 {
@@ -19,7 +20,7 @@ if(isset($id))
 	fwrite($fp,'SORT:'.$id."\n");
 	fclose($fp);
 
-	$sql="SELECT * FROM users ORDER BY $id";
+	$sql="SELECT * FROM users ORDER BY '$id'";
 	/* execute multi query */
 	if (mysqli_multi_query($con1, $sql))
 	{
