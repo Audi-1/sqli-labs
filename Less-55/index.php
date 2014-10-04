@@ -21,6 +21,7 @@
 //including the Mysql connect parameters.
 include '../sql-connections/sql-connect-1.php';
 include '../sql-connections/functions.php';
+error_reporting(0);
 $pag = $_SERVER['PHP_SELF']; //generating page address to piggy back after redirects...
 $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; //characterset for generating random data
 $times= 14;
