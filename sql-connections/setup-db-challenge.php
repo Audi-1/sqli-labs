@@ -7,8 +7,9 @@
 include '../sql-connections/db-creds.inc';
 
 @error_reporting(0);
+if(isset($_GET['id']))
 $id = $_GET['id'];
-echo $id;
+//echo $id;
 
 // Check connection
 @$con = mysql_connect($host,$dbuser,$dbpass);
