@@ -107,6 +107,7 @@ if(!isset($_POST['answer_key']))
 				echo "<br>";
 				echo 'Your Password:' .$row['password'];
 				echo "</font>";
+				header( "refresh:4;url=../sql-connections/setup-db-challenge.php?id=$pag" );
 			}
 			else 
 			{
