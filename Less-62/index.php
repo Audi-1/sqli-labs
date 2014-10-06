@@ -160,7 +160,9 @@ else
 		echo '<font color= "#FFFF00">';
 		echo "\n<br><br><br>";
 		echo '<img src="../images/Less-54-1.jpg" />';
-		echo "</font>"; 	
+		
+		echo "</font>";
+		header( "refresh:4;url=../sql-connections/setup-db-challenge.php?id=$pag" ); 	
 	}
 	else 
 	{
