@@ -89,7 +89,6 @@ if(!isset($_POST['answer_key']))
 				setcookie('challenge', ' ', time() - 3600000);
 				echo "<font size=4>You have exceeded maximum allowed attempts, Hence Challenge Has Been Reset </font><br>\n";
 				echo "Redirecting you to challenge page..........\n";
-				header( "refresh:3;url=../sql-connections/setup-db-challenge.php?id=$pag" );
 				echo "<br>\n";
 			}	
 		
