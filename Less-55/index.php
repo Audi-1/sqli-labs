@@ -90,6 +90,7 @@ if(!isset($_POST['answer_key']))
 				echo "<font size=4>You have exceeded maximum allowed attempts, Hence Challenge Has Been Reset </font><br>\n";
 				echo "Redirecting you to challenge page..........\n";
 				echo "<br>\n";
+				header( "refresh:4;url=../sql-connections/setup-db-challenge.php?id=$pag" );
 			}	
 		
 		
@@ -106,7 +107,7 @@ if(!isset($_POST['answer_key']))
 				echo "<br>";
 				echo 'Your Password:' .$row['password'];
 				echo "</font>";
-				header( "refresh:4;url=../sql-connections/setup-db-challenge.php?id=$pag" );
+				
 			}
 			else 
 			{
