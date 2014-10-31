@@ -13,7 +13,7 @@
 <?php
 //including the Mysql connect parameters.
 include("../sql-connections/sql-connect.php");
-
+error_reporting(0);
 // take the variables
 if(isset($_GET['id']))
 {
@@ -32,7 +32,7 @@ $row = mysql_fetch_array($result);
 
 	if($row)
 	{
-  	echo '<font color= "#0000ff">';	
+  	echo "<font size='5' color= '#99FF00'>";
   	echo 'Your Login name:'. $row['username'];
   	echo "<br>";
   	echo 'Your Password:' .$row['password'];

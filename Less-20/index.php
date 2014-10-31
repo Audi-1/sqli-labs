@@ -10,6 +10,7 @@
 <?php
 //including the Mysql connect parameters.
 	include("../sql-connections/sql-connect.php");
+	error_reporting(0);
 if(!isset($_COOKIE['uname']))
 	{
 	//including the Mysql connect parameters.
