@@ -1,0 +1,12 @@
+FROM php:5.6-apache
+MAINTAINER jose nazario <jose@monkey.org>
+LABEL version="1.0" description="sqli-labs Apache/PHP Docker image"
+
+COPY . /var/www/html	
+
+RUN  apt-get update && \
+    apt-get install -y php5-mysql php-apc php5-mcrypt && \
+    sed -i s/localhost/db/g /var/www/html/sql-connections/db-creds.inc && \
+	sed -i s/"''"/'"toor"'/g /var/www/html/sql-connections/db-creds.inc && \
+	cp /etc/php5/mods-available/*.ini /usr/local/etc/php/conf.d &&  \
+	cp /usr/lib/php5/20131226/*.so /usr/local/lib/php/extensions/no-debug-non-zts-20131226
