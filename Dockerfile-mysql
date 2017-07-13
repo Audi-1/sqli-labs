@@ -1,0 +1,3 @@
+FROM mysql:latest
+MAINTAINER jose nazario <jose@monkey.org>
+LABEL version="1.0" description="sqli-labs MySQL Docker image"
