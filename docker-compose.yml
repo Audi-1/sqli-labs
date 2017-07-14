@@ -1,0 +1,35 @@
+version: '2.1'
+
+services:
+  web:
+    container_name: sqli-web
+    image: php:5.6-apache
+    hostname: sqliweb
+    build:
+      context: .
+      dockerfile: Dockerfile-php
+    networks:
+      - sqli-network
+    ports:
+      - "8080:80"
+  mysql:
+    container_name: sqli-mysql
+    image: mysql:latest
+    hostname: sqlidb
+    build:
+      context: .
+      dockerfile: Dockerfile-mysql
+    networks:
+      sqli-network:
+        aliases:
+          - db
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_PASSWORD: toor
+      MYSQL_DATABASE: security
+    ports:
+      - "3306:3306"
+
+networks:
+  sqli-network:
+    driver: bridge
