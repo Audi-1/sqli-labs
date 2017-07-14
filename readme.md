@@ -30,8 +30,10 @@ Following labs are covered for GET and POST scenarios:
 11. Stacked SQL injections.
 12. Secondary channel extraction
 
-========================================================================================
-Install Instructions:
+Install Instructions
+================
+
+## Locally
 
 1. Unzip the contents inside the apache folder, for example under /var/www
 2. This will create a folder sql-labs under it. else you can use git command from within /var/www folder.
@@ -43,7 +45,16 @@ Install Instructions:
 7. Labs ready to be used, click on lesson number to open the lesson page.
 8. Enjoy the labs
 
-==========================================================================================
+## Using Docker
+
+1. If needed, [install Docker CE for your platform (Windows, Linux, OSX)](https://docs.docker.com/engine/installation/)
+2. If needed, [install Docker-Compose](https://docs.docker.com/compose/install/)
+3. In the top level directory, run `docker-compose build`. This will build the containers for you according to the Dockerfiles.
+4. Launch the containers, run `docker-compose up`. You now have two containers running, one for the web front end and one for the MySQL server.
+
+You can now browse http://localhost:8080/ and get to work. Reset the database and start the challenges. 
+
+----
 
 Corrosponding walkthrough video tutorials and explainations can be found at:
 
@@ -53,11 +64,11 @@ Corrosponding walkthrough video tutorials and explainations can be found at:
 
 you can also find the read along book at https://leanpub.com/SQLI-LABS, work is under process.
 
-==========================================================================================
+----
 
 Challenge Section added:
 Less-54 to Less - 61 special challenge lessons added to repository for testing skills learnt from the other Lab lessons.
 
-==========================================================================================
+
 
 
