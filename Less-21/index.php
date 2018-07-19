@@ -56,7 +56,8 @@ function check_input($value)
 			}
 		if (!ctype_digit($value))   	// Quote if not a number
 			{
-			$value = "'" . mysql_real_escape_string($value) . "'";
+			include("../sql-connections/sql-connect.php");
+			$value = "'" . $con->real_escape_string($value) . "'";
 			}
 	else
 		{
@@ -80,8 +81,8 @@ function check_input($value)
 
 		
 		$sql="SELECT  users.username, users.password FROM users WHERE users.username=$uname and users.password=$passwd ORDER BY users.id DESC LIMIT 0,1";
-		$result1 = mysql_query($sql);
-		$row1 = mysql_fetch_array($result1);
+		$result1 = $con->query($sql);
+		$row1 = $result1->fetch_array();
 			if($row1)
 				{
 				echo '<font color= "#FFFF00" font size = 3 >';
@@ -93,7 +94,7 @@ function check_input($value)
 				//echo 'Your Cookie is: ' .$cookee;
 				echo "</font>";
 				echo "<br>";
-				print_r(mysql_error());			
+				print_r($con->error);
 				echo "<br><br>";
 				echo '<img src="../images/flag.jpg" />';
 				echo "<br>";
@@ -103,7 +104,7 @@ function check_input($value)
 				{
 				echo '<font color= "#0000ff" font size="3">';
 				//echo "Try again looser";
-				print_r(mysql_error());
+				print_r($con->error);
 				echo "</br>";			
 				echo "</br>";
 				echo '<img src="../images/slap.jpg" />';	
@@ -144,12 +145,12 @@ else
 			$cookee = base64_decode($cookee);
 			echo "<br></font>";
 			$sql="SELECT * FROM users WHERE username=('$cookee') LIMIT 0,1";
-			$result=mysql_query($sql);
+			$result=$con->query($sql);
 			if (!$result)
   				{
-  				die('Issue with your mysql: ' . mysql_error());
+  				die('Issue with your mysql: ' . $con->error);
   				}
-			$row = mysql_fetch_array($result);
+			$row = $result->fetch_array();
 			if($row)
 				{
 			  	echo '<font color= "pink" font size="5">';	
