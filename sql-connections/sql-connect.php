@@ -5,9 +5,9 @@ include("../sql-connections/db-creds.inc");
 @error_reporting(0);
 @$con = new mysqli($host,$dbuser,$dbpass,$dbname);
 // Check connection
-if ($con->connect-error)
+if ($con->connect_error)
 {
-    echo "Failed to connect to MySQL: " . $con->connect-error;
+    echo "Failed to connect to MySQL: " . $con->connect_error;
 }
 
 
