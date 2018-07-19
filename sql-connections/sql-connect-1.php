@@ -3,15 +3,14 @@
 //including the Mysql connect parameters.
 include("../sql-connections/db-creds.inc");
 @error_reporting(0);
-@$con = mysql_connect($host,$dbuser,$dbpass);
+@$con = new mysqli($host,$dbuser,$dbpass,$dbname1);
 // Check connection
-if (!$con)
+if ($con->connect_error)
 {
-    echo "Failed to connect to MySQL: " . mysql_error();
+    echo "Failed to connect to MySQL: " . $con->connect_error();
 }
 
 
-    @mysql_select_db($dbname1,$con) or die ( "Unable to connect to the database: $dbname1".mysql_error());
 
 
 
