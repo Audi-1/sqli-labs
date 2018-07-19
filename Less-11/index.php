@@ -82,7 +82,7 @@ if(isset($_POST['uname']) && isset($_POST['passwd']))
 	{
 		echo '<font color= "#0000ff" font size="3">';
 		//echo "Try again looser";
-		print_r($con->error());
+		print_r($con->error);
 		echo "</br>";
 		echo "</br>";
 		echo "</br>";

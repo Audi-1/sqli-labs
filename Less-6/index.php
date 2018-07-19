@@ -41,7 +41,7 @@ $row = $result->fetch_array();
 	{
 	
 	echo '<font size="3"  color= "#FFFF00">';
-	print_r($con->error());
+	print_r($con->error);
 	echo "</br></font>";	
 	echo '<font color= "#0000ff" font size= 3>';	
 	

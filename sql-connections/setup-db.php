@@ -27,7 +27,7 @@ include("../sql-connections/db-creds.inc");
 
 
 $con = new mysqli($host,$dbuser,$dbpass,$dbname);
-if ($con->connect_error)
+if ($con->connect_errno)
   {
   die('[*]...................Could not connect to DB, check the creds in db-creds.inc: ' . $con->connect_error);
   }

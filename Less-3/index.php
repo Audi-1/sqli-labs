@@ -43,7 +43,7 @@ $row = $result->fetch_array();
 	else 
 	{
 	echo '<font color= "#FFFF00">';
-	print_r($con->error());
+	print_r($con->error);
 	echo "</font>";  
 	}
 }

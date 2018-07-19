@@ -8,7 +8,7 @@ error_reporting(0);
 $con1 = new mysqli($host,$dbuser,$dbpass,$dbname1);
 
 // Check connection
-if ($con1->connect_error)
+if ($con1->connect_errno)
 {
     echo "Failed to connect to MySQL: " . $con1->connect_error;
 }

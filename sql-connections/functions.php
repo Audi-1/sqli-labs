@@ -46,10 +46,10 @@ function column_name($idee)
 	include '../sql-connections/sql-connect-1.php';
 	$table = table_name();
 	$sql="SELECT column_name FROM information_schema.columns WHERE table_name='$table' LIMIT $idee,1";
-	$result=$con->query($sql) or die("error in function column_name()".$con->error());
+	$result=$con->query($sql) or die("error in function column_name()".$con->error);
 	$row = $result->fetch_array();
 	if(!$row)
-	die("error in function column_name() result". $con->error());
+	die("error in function column_name() result". $con->error);
 	else
 	return $row[0];
 }
@@ -61,10 +61,10 @@ function data($tab,$col)
 	include '../sql-connections/db-creds.inc';
 	include '../sql-connections/sql-connect-1.php';
 	$sql="SELECT $col FROM $tab WHERE id=1";
-	$result=$con->query($sql) or die("error in function column_name()".$con->error());
+	$result=$con->query($sql) or die("error in function column_name()".$con->error);
 	$row = $result->fetch_array();
 	if(!$row)
-	die("error in function column_name() result". $con->error());
+	die("error in function column_name() result". $con->error);
 	else
 	return $row[0];
 }
@@ -77,7 +77,7 @@ function next_tryy()
 	include '../sql-connections/db-creds.inc';
 	include '../sql-connections/sql-connect-1.php';
 	$sql = "UPDATE $table SET tryy=tryy+1 WHERE id=1";
-	$con->query($sql) or die("error in function next_tryy()". $con->error());
+	$con->query($sql) or die("error in function next_tryy()". $con->error);
 }
 
 function view_attempts()
@@ -88,7 +88,7 @@ function view_attempts()
 	$result=$con->query($sql) ;
 	$row = $result->fetch_array();
 	if(!$row)
-	die("error in function view_attempts()". $con->error());
+	die("error in function view_attempts()". $con->error);
 	else
 	return $row[0];	
 }
