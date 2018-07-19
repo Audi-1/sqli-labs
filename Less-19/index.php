@@ -51,7 +51,8 @@ function check_input($value)
 		// Quote if not a number
 		if (!ctype_digit($value))
 			{
-			$value = "'" . mysql_real_escape_string($value) . "'";
+			include("../sql-connections/sql-connect.php");
+			$value = "'" . $con->real_escape_string($value) . "'";
 			}
 		
 	else
@@ -95,13 +96,13 @@ if(isset($_POST['uname']) && isset($_POST['passwd']))
 	
 	
 	$sql="SELECT  users.username, users.password FROM users WHERE users.username=$uname and users.password=$passwd ORDER BY users.id DESC LIMIT 0,1";
-	$result1 = mysql_query($sql);
-	$row1 = mysql_fetch_array($result1);
+	$result1 = $con->query($sql);
+	$row1 = $result1->fetch_array();
 		if($row1)
 			{
 			echo '<font color= "#FFFF00" font size = 3 >';
 			$insert="INSERT INTO `security`.`referers` (`referer`, `ip_address`) VALUES ('$uagent', '$IP')";
-			mysql_query($insert);
+			$con->query($insert);
 			//echo 'Your IP ADDRESS is: ' .$IP;
 			echo "</font>";
 			//echo "<br>";
@@ -109,7 +110,7 @@ if(isset($_POST['uname']) && isset($_POST['passwd']))
 			echo 'Your Referer is: ' .$uagent;
 			echo "</font>";
 			echo "<br>";
-			print_r(mysql_error());			
+			print_r($con->error);			
 			echo "<br><br>";
 			echo '<img src="../images/flag.jpg" />';
 			echo "<br>";
@@ -119,7 +120,7 @@ if(isset($_POST['uname']) && isset($_POST['passwd']))
 			{
 			echo '<font color= "#0000ff" font size="3">';
 			//echo "Try again looser";
-			print_r(mysql_error());
+			print_r($con->error);
 			echo "</br>";			
 			echo "</br>";
 			echo '<img src="../images/slap.jpg"  />';	
