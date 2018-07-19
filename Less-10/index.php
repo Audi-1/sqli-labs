@@ -28,8 +28,8 @@ fclose($fp);
 
 $id = '"'.$id.'"';
 $sql="SELECT * FROM users WHERE id=$id LIMIT 0,1";
-$result=mysql_query($sql);
-$row = mysql_fetch_array($result);
+$result=$con->query($sql);
+$row = $result->fetch_array();
 
 	if($row)
 	{
