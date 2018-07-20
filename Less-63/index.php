@@ -95,8 +95,8 @@ if(!isset($_POST['answer_key']))
 			
 			// Querry DB to get the correct output
 			$sql="SELECT * FROM security.users WHERE id='$id' LIMIT 0,1";
-			$result=mysql_query($sql);
-			$row = mysql_fetch_array($result);
+			$result=$con->query($sql);
+			$row = $result->fetch_array();
 
 			if($row)
 			{
@@ -146,14 +146,14 @@ else
 {
 	echo '<div  style=" color:#00FFFF; font-size:18px; text-align:center">';
 	$key = addslashes($_POST['key']);
-	$key = mysql_real_escape_string($key);
+	$key = $con->real_escape_string($key);
 	//echo $key;
 	//Query table to verify your result
 	$sql="SELECT 1 FROM $table WHERE $col1= '$key'";
 	//echo "$sql";
-	$result=mysql_query($sql)or die("error in submittion of Key Solution".mysql_error());
+	$result=$con->query($sql)or die("error in submittion of Key Solution".$con->error);
 	 
-	$row = mysql_fetch_array($result);
+	$row = $result->fetch_array();
 	
 	if($row)
 	{
