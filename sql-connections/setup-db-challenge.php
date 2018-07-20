@@ -15,7 +15,7 @@ $id = $_GET['id'];
 @$con = new mysqli($host,$dbuser,$dbpass,$dbname1);
 if ($con->connect_errno)
 {
-    echo "Failed to connect to MySQL: " . $con->connet_error();
+    echo "Failed to connect to MySQL: " . $con->connet_error;
 }
 
 
