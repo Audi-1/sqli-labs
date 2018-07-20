@@ -64,10 +64,10 @@ if(isset($_POST['uname']) && isset($_POST['passwd']))
         //echo "Input password after addslashes is : ".$passwd;    
 
 	// connectivity 
-	mysql_query("SET NAMES gbk");
+	$con->query("SET NAMES gbk");
 	@$sql="SELECT username, password FROM users WHERE username='$uname' and password='$passwd' LIMIT 0,1";
-	$result=mysql_query($sql);
-	$row = mysql_fetch_array($result);
+	$result=$con->query($sql);
+	$row = $result->fetch_array();
 
 	if($row)
 	{
@@ -93,7 +93,7 @@ if(isset($_POST['uname']) && isset($_POST['passwd']))
 	{
 		echo '<font color= "#0000ff" font size="3">';
 		//echo "Try again looser";
-		print_r(mysql_error());
+		print_r($con->error);
 		echo "</br>";
 		echo "</br>";
 		echo "</br>";
