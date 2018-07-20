@@ -95,7 +95,7 @@ if(!isset($_POST['answer_key']))
 			$id = '"'.$id.'"';
 			// Querry DB to get the correct output
 			$sql="SELECT * FROM security.users WHERE id=($id) LIMIT 0,1";
-			$result=m$con->query($sql);
+			$result=$con->query($sql);
 			$row = $result->fetch_array();
 
 			if($row)
