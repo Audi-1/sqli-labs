@@ -28,7 +28,7 @@ fclose($fp);
 $id = '"' . $id . '"';
 $sql="SELECT * FROM users WHERE id=($id) LIMIT 0,1";
 $result=$con->query($sql);
-$row = $result->etch_array();
+$row = $result->fetch_array();
 
 	if($row)
 	{
