@@ -16,7 +16,8 @@ include("../sql-connections/sql-connect.php");
 
 function check_quotes($string)
 {
-    $string= mysql_real_escape_string($string);    
+    include("../sql-connections/sql-connect.php");
+    $string= $con->real_escape_string($string);    
     return $string;
 }
 
@@ -33,10 +34,10 @@ fclose($fp);
 
 // connectivity 
 
-mysql_query("SET NAMES gbk");
+$con->query("SET NAMES gbk");
 $sql="SELECT * FROM users WHERE id='$id' LIMIT 0,1";
-$result=mysql_query($sql);
-$row = mysql_fetch_array($result);
+$result=$con->query($sql);
+$row = $result->fetch_array();
 
 	if($row)
 	{
@@ -49,7 +50,7 @@ $row = mysql_fetch_array($result);
 	else 
 	{
 	echo '<font color= "#FFFF00">';
-	print_r(mysql_error());
+	print_r($con->error);
 	echo "</font>";  
 	}
 }
