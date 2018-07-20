@@ -22,14 +22,14 @@ if (isset($_POST['submit']))
 # Validating the user input........
 
 	//$username=  $_POST['username'] ;
-	$username=  mysql_escape_string($_POST['username']) ;
-	$pass= mysql_escape_string($_POST['password']);
-	$re_pass= mysql_escape_string($_POST['re_password']);
+	$username=  $con->escape_string($_POST['username']) ;
+	$pass= $con->escape_string($_POST['password']);
+	$re_pass= $con->escape_string($_POST['re_password']);
 	
 	echo "<font size='3' color='#FFFF00'>";
 	$sql = "select count(*) from users where username='$username'";
-	$res = mysql_query($sql) or die('You tried to be smart, Try harder!!!! :( ');
-  	$row = mysql_fetch_row($res);
+	$res = $con->query($sql) or die('You tried to be smart, Try harder!!!! :( ');
+  	$row = $res->fetch_row();
 	
 	//print_r($row);
 	if (!$row[0]== 0) 
@@ -46,7 +46,7 @@ if (isset($_POST['submit']))
 				# Building up the query........
    				
    				$sql = "insert into users ( username, password) values(\"$username\", \"$pass\")";
-   				mysql_query($sql) or die('Error Creating your user account,  : '.mysql_error());
+   				$con->query($sql) or die('Error Creating your user account,  : '.$con->error);
 					echo "</br>";
 					echo "<center><img src=../images/Less-24-user-created.jpg><font size='3' color='#FFFF00'>";   				
 					//echo "<h1>User Created Successfully</h1>";

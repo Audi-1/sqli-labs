@@ -16,13 +16,13 @@ include("../sql-connections/sql-connect.php");
 
 
 function sqllogin(){
-
-   $username = mysql_real_escape_string($_POST["login_user"]);
-   $password = mysql_real_escape_string($_POST["login_password"]);
+   include("../sql-connections/sql-connect.php");
+   $username = $con->real_escape_string($_POST["login_user"]);
+   $password = $con->real_escape_string($_POST["login_password"]);
    $sql = "SELECT * FROM users WHERE username='$username' and password='$password'";
 //$sql = "SELECT COUNT(*) FROM users WHERE username='$username' and password='$password'";
-   $res = mysql_query($sql) or die('You tried to be real smart, Try harder!!!! :( ');
-   $row = mysql_fetch_row($res);
+   $res = $con->query($sql) or die('You tried to be real smart, Try harder!!!! :( ');
+   $row = $res->fetch_row();
 	//print_r($row) ;
    if ($row[1]) {
 			return $row[1];
