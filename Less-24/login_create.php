@@ -28,7 +28,7 @@ if (isset($_POST['submit']))
 	
 	echo "<font size='3' color='#FFFF00'>";
 	$sql = "select count(*) from users where username='$username'";
-	$res = mysql_query($sql) or die('You tried to be smart, Try harder!!!! :( ');
+	$res = mysqli_query($con, $sql) or die('You tried to be smart, Try harder!!!! :( ');
   	$row = mysql_fetch_row($res);
 	
 	//print_r($row);
@@ -46,7 +46,7 @@ if (isset($_POST['submit']))
 				# Building up the query........
    				
    				$sql = "insert into users ( username, password) values(\"$username\", \"$pass\")";
-   				mysql_query($sql) or die('Error Creating your user account,  : '.mysql_error());
+   				mysqli_query($con, $sql) or die('Error Creating your user account,  : '.mysqli_error($con));
 					echo "</br>";
 					echo "<center><img src=../images/Less-24-user-created.jpg><font size='3' color='#FFFF00'>";   				
 					//echo "<h1>User Created Successfully</h1>";

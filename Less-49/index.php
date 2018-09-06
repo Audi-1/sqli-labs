@@ -20,7 +20,7 @@ if(isset($id))
 	fclose($fp);
 
 	$sql = "SELECT * FROM users ORDER BY '$id'";
-	$result = mysql_query($sql);
+	$result = mysqli_query($con, $sql);
 	if ($result)
 		{
 		?>
