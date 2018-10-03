@@ -20,7 +20,7 @@ if(isset($id))
 	fclose($fp);
 
 	$sql = "SELECT * FROM users ORDER BY '$id'";
-	$result = mysql_query($sql);
+	$result = mysqli_query($con, $sql);
 	if ($result)
 		{
 		?>
@@ -52,7 +52,7 @@ if(isset($id))
 	else
 		{
 		echo '<font color= "#FFFF00">';
-		print_r(mysql_error());
+		print_r(mysqli_error($con));
 		echo "</font>";  
 		}
 	}	

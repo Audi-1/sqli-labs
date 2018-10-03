@@ -53,7 +53,7 @@ function check_input($value)
 		// Quote if not a number
 		if (!ctype_digit($value))
 			{
-			$value = "'" . mysql_real_escape_string($value) . "'";
+			$value = "'" . mysqli_real_escape_string($con, $value) . "'";
 			}
 		
 	else
@@ -83,8 +83,8 @@ fclose($fp);
 // connectivity 
 @$sql="SELECT username, password FROM users WHERE username= $uname LIMIT 0,1";
 
-$result=mysql_query($sql);
-$row = mysql_fetch_array($result);
+$result=mysqli_query($con, $sql);
+$row = mysqli_fetch_array($result, MYSQLI_BOTH);
 //echo $row;
 	if($row)
 	{
@@ -97,10 +97,10 @@ $row = mysql_fetch_array($result);
 	
 	
 	
-		if (mysql_error())
+		if (mysqli_error($con))
 		{
 			echo '<font color= "#FFFF00" font size = 3 >';
-			print_r(mysql_error());
+			print_r(mysqli_error($con));
 			echo "</br></br>";
 			echo "</font>";
 		}
