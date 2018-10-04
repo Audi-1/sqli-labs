@@ -31,6 +31,7 @@ Following labs are covered for GET and POST scenarios:
 12. Secondary channel extraction
 
 ========================================================================================
+
 Install Instructions:
 
 1. Unzip the contents inside the apache folder, for example under /var/www
@@ -43,9 +44,13 @@ Install Instructions:
 7. Labs ready to be used, click on lesson number to open the lesson page.
 8. Enjoy the labs
 
+If you prefer to use Docker Compose you can simply:
+
+    docker-compose up
+
 ==========================================================================================
 
-Corrosponding walkthrough video tutorials and explainations can be found at:
+Corresponding walkthrough video tutorials and explainations can be found at:
 
 1. http://dummy2dummies.blogspot.com 
 2. http://www.securitytube.net/user/Audi

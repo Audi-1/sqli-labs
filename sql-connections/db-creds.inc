@@ -1,13 +1,10 @@
 <?php
+$host =  $_ENV["DB_HOST"] ?: 'localhost';
 
 //give your mysql connection username n password
-$dbuser ='root';
-$dbpass ='';
-$dbname ="security";
-$host = 'localhost';
+$dbuser = $_ENV["DB_USER"] ?: "root";
+$dbpass = $_ENV["DB_PASS"] ?: "";
+
+$dbname = "security";
 $dbname1 = "challenges";
-
-
-
 ?>
-

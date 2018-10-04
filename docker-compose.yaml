@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db:
+    image: "mysql:5.7"
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_ROOT_HOST: "%"
+  web:
+    depends_on:
+      - db
+    image: "php:5.3-apache"
+    volumes:
+      - ".:/var/www/html"
+    ports:
+      - "8000:80"
+    environment:
+      DB_HOST: "db"
+      DB_PASS: "toor"
+    links:
+      - db:db
