@@ -15,7 +15,7 @@
 <?php
 //including the Mysql connect parameters.
 include("../sql-connections/sql-connect.php");
-
+error_reporting(0);
 // take the variables
 if(isset($_GET['id']))
 {

@@ -32,7 +32,7 @@
 <?php
 //including the Mysql connect parameters.
 include("../sql-connections/sql-connect.php");
-
+error_reporting(0);
 	
 function check_input($value)
 	{
