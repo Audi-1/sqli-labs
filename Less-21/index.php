@@ -8,11 +8,11 @@
 
 <body bgcolor="#000000">
 <?php
-//including the Mysql connect parameters.
+//including the mysqli connect parameters.
 	include("../sql-connections/sql-connect.php");
 if(!isset($_COOKIE['uname']))
 	{
-	//including the Mysql connect parameters.
+	//including the mysqli connect parameters.
 	include("../sql-connections/sql-connect.php");
 
 	echo "<div style=' margin-top:20px;color:#FFF; font-size:24px; text-align:center'> Welcome&nbsp;&nbsp;&nbsp;<font color='#FF0000'> Dhakkan </font><br></div>";
@@ -56,7 +56,7 @@ function check_input($value)
 			}
 		if (!ctype_digit($value))   	// Quote if not a number
 			{
-			$value = "'" . mysql_real_escape_string($value) . "'";
+			$value = "'" . mysqli_real_escape_string($value) . "'";
 			}
 	else
 		{
@@ -80,8 +80,8 @@ function check_input($value)
 
 		
 		$sql="SELECT  users.username, users.password FROM users WHERE users.username=$uname and users.password=$passwd ORDER BY users.id DESC LIMIT 0,1";
-		$result1 = mysql_query($sql);
-		$row1 = mysql_fetch_array($result1);
+		$result1 = mysqli_query($con,$sql);
+		$row1 = mysqli_fetch_array($result1);
 			if($row1)
 				{
 				echo '<font color= "#FFFF00" font size = 3 >';
@@ -93,7 +93,7 @@ function check_input($value)
 				//echo 'Your Cookie is: ' .$cookee;
 				echo "</font>";
 				echo "<br>";
-				print_r(mysql_error());			
+				print_r(mysqli_error());			
 				echo "<br><br>";
 				echo '<img src="../images/flag.jpg" />';
 				echo "<br>";
@@ -103,7 +103,7 @@ function check_input($value)
 				{
 				echo '<font color= "#0000ff" font size="3">';
 				//echo "Try again looser";
-				print_r(mysql_error());
+				print_r(mysqli_error());
 				echo "</br>";			
 				echo "</br>";
 				echo '<img src="../images/slap.jpg" />';	
@@ -144,12 +144,12 @@ else
 			$cookee = base64_decode($cookee);
 			echo "<br></font>";
 			$sql="SELECT * FROM users WHERE username=('$cookee') LIMIT 0,1";
-			$result=mysql_query($sql);
+			$result=mysqli_query($con,$sql);
 			if (!$result)
   				{
-  				die('Issue with your mysql: ' . mysql_error());
+  				die('Issue with your mysqli: ' . mysqli_error());
   				}
-			$row = mysql_fetch_array($result);
+			$row = mysqli_fetch_array($result);
 			if($row)
 				{
 			  	echo '<font color= "pink" font size="5">';	

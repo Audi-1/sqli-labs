@@ -18,7 +18,7 @@
 
 
 <?php
-//including the Mysql connect parameters.
+//including the mysqli connect parameters.
 include '../sql-connections/sql-connect-1.php';
 include '../sql-connections/functions.php';
 error_reporting(0);
@@ -95,8 +95,8 @@ if(!isset($_POST['answer_key']))
 			$id = '"'.$id.'"';
 			// Querry DB to get the correct output
 			$sql="SELECT * FROM security.users WHERE id=($id) LIMIT 0,1";
-			$result=mysql_query($sql);
-			$row = mysql_fetch_array($result);
+			$result=mysqli_query($con,$sql);
+			$row = mysqli_fetch_array($result);
 
 			if($row)
 			{
@@ -111,7 +111,7 @@ if(!isset($_POST['answer_key']))
 			else 
 			{
 				echo '<font color= "#FFFF00">';
-//				print_r(mysql_error());
+//				print_r(mysqli_error());
 				echo "</font>";  
 			}
 		}
@@ -146,14 +146,14 @@ else
 {
 	echo '<div  style=" color:#00FFFF; font-size:18px; text-align:center">';
 	$key = addslashes($_POST['key']);
-	$key = mysql_real_escape_string($key);
+	$key = mysqli_real_escape_string($key);
 	//echo $key;
 	//Query table to verify your result
 	$sql="SELECT 1 FROM $table WHERE $col1= '$key'";
 	//echo "$sql";
-	$result=mysql_query($sql)or die("error in submittion of Key Solution".mysql_error());
+	$result=mysqli_query($con,$sql)or die("error in submittion of Key Solution".mysqli_error());
 	 
-	$row = mysql_fetch_array($result);
+	$row = mysqli_fetch_array($result);
 	
 	if($row)
 	{
@@ -169,7 +169,7 @@ else
 		echo "\n<br><br><br>";
 		echo '<img src="../images/slap1.jpg" />';
 		header( "refresh:3;url=index.php" );
-		//print_r(mysql_error());
+		//print_r(mysqli_error());
 		echo "</font>";  
 			}	
 

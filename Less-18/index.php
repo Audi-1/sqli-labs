@@ -30,7 +30,7 @@
 
 
 <?php
-//including the Mysql connect parameters.
+//including the mysqli connect parameters.
 include("../sql-connections/sql-connect.php");
 error_reporting(0);
 	
@@ -51,7 +51,7 @@ function check_input($value)
 		// Quote if not a number
 		if (!ctype_digit($value))
 			{
-			$value = "'" . mysql_real_escape_string($value) . "'";
+			$value = "'" . mysqli_real_escape_string($value) . "'";
 			}
 		
 	else
@@ -95,13 +95,13 @@ if(isset($_POST['uname']) && isset($_POST['passwd']))
 	
 	
 	$sql="SELECT  users.username, users.password FROM users WHERE users.username=$uname and users.password=$passwd ORDER BY users.id DESC LIMIT 0,1";
-	$result1 = mysql_query($sql);
-	$row1 = mysql_fetch_array($result1);
+	$result1 = mysqli_query($con,$sql);
+	$row1 = mysqli_fetch_array($result1);
 		if($row1)
 			{
 			echo '<font color= "#FFFF00" font size = 3 >';
 			$insert="INSERT INTO `security`.`uagents` (`uagent`, `ip_address`, `username`) VALUES ('$uagent', '$IP', $uname)";
-			mysql_query($insert);
+			mysqli_query($con,$insert);
 			//echo 'Your IP ADDRESS is: ' .$IP;
 			echo "</font>";
 			//echo "<br>";
@@ -109,7 +109,7 @@ if(isset($_POST['uname']) && isset($_POST['passwd']))
 			echo 'Your User Agent is: ' .$uagent;
 			echo "</font>";
 			echo "<br>";
-			print_r(mysql_error());			
+			print_r(mysqli_error());			
 			echo "<br><br>";
 			echo '<img src="../images/flag.jpg"  />';
 			echo "<br>";
@@ -119,7 +119,7 @@ if(isset($_POST['uname']) && isset($_POST['passwd']))
 			{
 			echo '<font color= "#0000ff" font size="3">';
 			//echo "Try again looser";
-			print_r(mysql_error());
+			print_r(mysqli_error());
 			echo "</br>";			
 			echo "</br>";
 			echo '<img src="../images/slap.jpg"   />';	

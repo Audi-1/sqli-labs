@@ -1,6 +1,6 @@
 <?php
 
-//give your mysql connection username n password
+//give your mysqli connection username n password
 $dbuser ='root';
 $dbpass ='';
 $dbname ="security";

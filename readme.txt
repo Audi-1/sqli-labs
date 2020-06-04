@@ -26,7 +26,7 @@ Following labs are covered for GET and POST scenarios:
 		Stripping UNION & SELECT
 	2. Impidence mismatch
 9. Bypass addslashes()
-10. Bypassing mysql_real_escape_string. (under special conditions)
+10. Bypassing mysqli_real_escape_string. (under special conditions)
 11. Stacked SQL injections.
 12. Secondary channel extraction
 
@@ -37,7 +37,7 @@ Install Instructions:
 2. This will create a folder sql-labs under it. else you can use git command from within /var/www folder.
 /var/www folder and then use following command> git clone https://github.com/Audi-1/sqli-labs.git sqli-labs
 3. Open the file "db-creds.inc" which is under sql-connections folder inside the sql-labs folder.
-4. Update your MYSQL database username and password.(default for Backtrack are used root:toor)
+4. Update your mysqli database username and password.(default for Backtrack are used root:toor)
 5. From your browser access the sql-labs folder to load index.html
 6. Click on the link setup/resetDB to create database, create tables and populate Data.
 7. Labs ready to be used, click on lesson number to open the lesson page.

@@ -11,7 +11,7 @@
 
 
 <?php
-//including the Mysql connect parameters.
+//including the mysqli connect parameters.
 include("../sql-connections/sql-connect.php");
 error_reporting(0);
 // take the variables
@@ -27,8 +27,8 @@ fclose($fp);
 
 $id = '"'.$id.'"';
 $sql="SELECT * FROM users WHERE id=$id LIMIT 0,1";
-$result=mysql_query($sql);
-$row = mysql_fetch_array($result);
+$result=mysqli_query($con,$sql);
+$row = mysqli_fetch_array($result);
 
 	if($row)
 	{
@@ -41,7 +41,7 @@ $row = mysql_fetch_array($result);
 	{
 	
 	echo '<font size="3"  color= "#FFFF00">';
-	print_r(mysql_error());
+	print_r(mysqli_error());
 	echo "</br></font>";	
 	echo '<font color= "#0000ff" font size= 3>';	
 	

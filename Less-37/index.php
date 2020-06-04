@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Less-37- MySQL_real_escape_string</title>
+	<title>Less-37- mysqli_real_escape_string</title>
 </head>
 
 <body bgcolor="#000000">
@@ -38,7 +38,7 @@
 </center>
 
 <?php
-//including the Mysql connect parameters.
+//including the mysqli connect parameters.
 include("../sql-connections/sql-connect.php");
 
 
@@ -57,17 +57,17 @@ if(isset($_POST['uname']) && isset($_POST['passwd']))
 	fwrite($fp,'Password:'.$passwd1."\n");
 	fclose($fp);
         
-        $uname = mysql_real_escape_string($uname1);
-        $passwd= mysql_real_escape_string($passwd1);
+        $uname = mysqli_real_escape_string($uname1);
+        $passwd= mysqli_real_escape_string($passwd1);
         
         //echo "username after addslashes is :".$uname ."<br>";
         //echo "Input password after addslashes is : ".$passwd;    
 
 	// connectivity 
-	mysql_query("SET NAMES gbk");
+	mysqli_query($con,"SET NAMES gbk");
 	@$sql="SELECT username, password FROM users WHERE username='$uname' and password='$passwd' LIMIT 0,1";
-	$result=mysql_query($sql);
-	$row = mysql_fetch_array($result);
+	$result=mysqli_query($con,$sql);
+	$row = mysqli_fetch_array($result);
 
 	if($row)
 	{
@@ -93,7 +93,7 @@ if(isset($_POST['uname']) && isset($_POST['passwd']))
 	{
 		echo '<font color= "#0000ff" font size="3">';
 		//echo "Try again looser";
-		print_r(mysql_error());
+		print_r(mysqli_error());
 		echo "</br>";
 		echo "</br>";
 		echo "</br>";

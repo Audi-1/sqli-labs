@@ -29,30 +29,30 @@ fwrite($fp,'ID:'.$id."\n");
 fclose($fp);
 
 // connectivity
-//mysql connections for stacked query examples.
-$con1 = mysqli_connect($host,$dbuser,$dbpass,$dbname);
+//mysqli connections for stacked query examples.
+$con1 = mysqlii_connect($host,$dbuser,$dbpass,$dbname);
 // Check connection
-if (mysqli_connect_errno($con1))
+if (mysqlii_connect_errno($con1))
 {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    echo "Failed to connect to mysqli: " . mysqlii_connect_error();
 }
 else
 {
-    @mysqli_select_db($con1, $dbname) or die ( "Unable to connect to the database: $dbname");
+    @mysqlii_select_db($con1, $dbname) or die ( "Unable to connect to the database: $dbname");
 }
 
 
 
 $sql="SELECT * FROM users WHERE id=$id LIMIT 0,1";
 /* execute multi query */
-if (mysqli_multi_query($con1, $sql))
+if (mysqlii_multi_query($con1, $sql))
 {
     
     
     /* store first result set */
-    if ($result = mysqli_store_result($con1))
+    if ($result = mysqlii_store_result($con1))
     {
-        if($row = mysqli_fetch_row($result))
+        if($row = mysqlii_fetch_row($result))
         {
             echo '<font size = "5" color= "#00FF00">';	
             printf("Your Username is : %s", $row[1]);
@@ -61,23 +61,23 @@ if (mysqli_multi_query($con1, $sql))
             echo "<br>";
             echo "</font>";
         }
-//            mysqli_free_result($result);
+//            mysqlii_free_result($result);
     }
         /* print divider */
-    if (mysqli_more_results($con1))
+    if (mysqlii_more_results($con1))
     {
             //printf("-----------------\n");
     }
-     //while (mysqli_next_result($con1));
+     //while (mysqlii_next_result($con1));
 }
 else 
     {
 	echo '<font size="5" color= "#FFFF00">';
-	print_r(mysqli_error($con1));
+	print_r(mysqlii_error($con1));
 	echo "</font>";  
     }
 /* close connection */
-mysqli_close($con1);
+mysqlii_close($con1);
 
 }
 	else { echo "Please input the ID as parameter with numeric value";}

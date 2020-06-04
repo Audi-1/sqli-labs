@@ -9,7 +9,7 @@
 <?PHP
 
 session_start();
-//including the Mysql connect parameters.
+//including the mysqli connect parameters.
 include("../sql-connections/db-creds.inc");
 
 
@@ -19,20 +19,20 @@ include("../sql-connections/db-creds.inc");
 
 function sqllogin($host,$dbuser,$dbpass, $dbname){
    // connectivity
-//mysql connections for stacked query examples.
-$con1 = mysqli_connect($host,$dbuser,$dbpass, $dbname);
+//mysqli connections for stacked query examples.
+$con1 = mysqlii_connect($host,$dbuser,$dbpass, $dbname);
    
-   $username = mysqli_real_escape_string($con1, $_POST["login_user"]);
+   $username = mysqlii_real_escape_string($con1, $_POST["login_user"]);
    $password = $_POST["login_password"];
 
    // Check connection
-   if (mysqli_connect_errno($con1))
+   if (mysqlii_connect_errno($con1))
    {
-       echo "Failed to connect to MySQL: " . mysqli_connect_error();
+       echo "Failed to connect to mysqli: " . mysqlii_connect_error();
    }
    else
    {
-       @mysqli_select_db($con1, $dbname) or die ( "Unable to connect to the database ######: ");
+       @mysqlii_select_db($con1, $dbname) or die ( "Unable to connect to the database ######: ");
    }
 
 
@@ -40,12 +40,12 @@ $con1 = mysqli_connect($host,$dbuser,$dbpass, $dbname);
 
    
    $sql = "SELECT * FROM users WHERE username=('$username') and password=('$password')";
-   if (@mysqli_multi_query($con1, $sql))
+   if (@mysqlii_multi_query($con1, $sql))
    {
         /* store first result set */
-      if($result = @mysqli_store_result($con1))
+      if($result = @mysqlii_store_result($con1))
       {
-	 if($row = @mysqli_fetch_row($result))
+	 if($row = @mysqlii_fetch_row($result))
 	 {
 	    if ($row[1])
 	    {
@@ -61,14 +61,14 @@ $con1 = mysqli_connect($host,$dbuser,$dbpass, $dbname);
       else 
       {
 	echo '<font size="5" color= "#FFFF00">';
-	print_r(mysqli_error($con1));
+	print_r(mysqlii_error($con1));
 	echo "</font>";  
       }
    }
    else 
    {
 	echo '<font size="5" color= "#FFFF00">';
-	print_r(mysqli_error($con1));
+	print_r(mysqlii_error($con1));
 	echo "</font>";  
     }
 }

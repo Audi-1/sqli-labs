@@ -22,7 +22,7 @@ if(isset($id))
 
 	$sql="SELECT * FROM users ORDER BY $id";
 	/* execute multi query */
-	if (mysqli_multi_query($con1, $sql))
+	if (mysqlii_multi_query($con1, $sql))
 	{
 
 		?>
@@ -39,9 +39,9 @@ if(isset($id))
 		</font>
 		<?php
 			/* store first result set */
-			if ($result = mysqli_store_result($con1))
+			if ($result = mysqlii_store_result($con1))
 			{
-				while($row = mysqli_fetch_row($result))
+				while($row = mysqlii_fetch_row($result))
 				{
 					echo '<font color= "#00FF11" size="3">';		
 					echo "<tr>";
@@ -66,7 +66,7 @@ if(isset($id))
 	else
 	{
 		echo '<font color= "#FFFF00">';
-		print_r(mysqli_error($con1));
+		print_r(mysqlii_error($con1));
 		echo "</font>";  
 	}
 }

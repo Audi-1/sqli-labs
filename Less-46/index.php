@@ -20,7 +20,7 @@ if(isset($id))
 	fclose($fp);
 
 	$sql = "SELECT * FROM users ORDER BY $id";
-	$result = mysql_query($sql);
+	$result = mysqli_query($con,$sql);
 	if ($result)
 		{
 		?>
@@ -36,7 +36,7 @@ if(isset($id))
 		</font>
 		</font>
 		<?php
-		while ($row = mysql_fetch_assoc($result))
+		while ($row = mysqli_fetch_assoc($result))
 			{
 			echo '<font color= "#00FF11" size="3">';		
 			echo "<tr>";
@@ -52,7 +52,7 @@ if(isset($id))
 		else
 		{
 		echo '<font color= "#FFFF00">';
-		print_r(mysql_error());
+		print_r(mysqli_error());
 		echo "</font>";  
 		}
 	}	

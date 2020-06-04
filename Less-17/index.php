@@ -32,7 +32,7 @@
 
 
 <?php
-//including the Mysql connect parameters.
+//including the mysqli connect parameters.
 include("../sql-connections/sql-connect.php");
 error_reporting(0);
 
@@ -53,7 +53,7 @@ function check_input($value)
 		// Quote if not a number
 		if (!ctype_digit($value))
 			{
-			$value = "'" . mysql_real_escape_string($value) . "'";
+			$value = "'" . mysqli_real_escape_string($value) . "'";
 			}
 		
 	else
@@ -83,8 +83,8 @@ fclose($fp);
 // connectivity 
 @$sql="SELECT username, password FROM users WHERE username= $uname LIMIT 0,1";
 
-$result=mysql_query($sql);
-$row = mysql_fetch_array($result);
+$result=mysqli_query($con,$sql);
+$row = mysqli_fetch_array($result);
 //echo $row;
 	if($row)
 	{
@@ -92,15 +92,15 @@ $row = mysql_fetch_array($result);
 		$row1 = $row['username'];  	
 		//echo 'Your Login name:'. $row1;
 		$update="UPDATE users SET password = '$passwd' WHERE username='$row1'";
-		mysql_query($update);
+		mysqli_query($con,$update);
   		echo "<br>";
 	
 	
 	
-		if (mysql_error())
+		if (mysqli_error())
 		{
 			echo '<font color= "#FFFF00" font size = 3 >';
-			print_r(mysql_error());
+			print_r(mysqli_error());
 			echo "</br></br>";
 			echo "</font>";
 		}
