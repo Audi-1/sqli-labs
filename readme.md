@@ -1,5 +1,9 @@
 README
 ================
+
+HELL YEAH IT WORKS WITH LATEST PHP AND SQL ENJOY
+
+
 SQLI-LABS is a platform to learn SQLI 
 Following labs are covered for GET and POST scenarios:
 
