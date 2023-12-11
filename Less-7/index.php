@@ -43,7 +43,7 @@ $row = mysql_fetch_array($result);
 	{
 	echo '<font color= "#FFFF00">';
 	echo 'You have an error in your SQL syntax';
-	//print_r(mysql_error());
+	print_r(mysql_error());
 	echo "</font>";  
 	}
 }
